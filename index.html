@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para mi niña linda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<audio id="musicaFondo" loop>
+  <source src="fondo.mp3" type="audio/mpeg">
+</audio>
+<script>
+  const musica = document.getElementById('musicaFondo');
+  musica.volume = 0.15;
+
+  // Intentar reproducir apenas carga
+  window.addEventListener('load', () => {
+    musica.play().catch(() => {
+      // Si el navegador bloquea, esperamos interacción
+      activarEnInteraccion();
+    });
+  });
+
+  function activarEnInteraccion() {
+    const activar = () => {
+      musica.play();
+      document.removeEventListener('click', activar);
+      document.removeEventListener('scroll', activar);
+      document.removeEventListener('touchstart', activar);
+    };
+
+    document.addEventListener('click', activar);
+    document.addEventListener('scroll', activar);
+    document.addEventListener('touchstart', activar);
+  }
+</script>
+
+
+
+    <section id="page1" class="page active">
+        <div class="main-container">
+            <div class="envelope-wrapper" onclick="startExperience()">
+                <div class="envelope">
+                    <div class="lid"></div>
+                    <div class="envelope-front"></div>
+                    <div class="heart-seal"></div>
+                </div>
+            </div>
+            <div class="text-wrapper">
+                <h1 class="typing-text">Para mi niña linda...</h1>
+                <p class="sub-text">Toca el corazón para abrir mi alma</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="page2" class="page">
+        <div class="content-wrapper">
+            <h2 class="glitch-title">Todo es confuso sin ti</h2>
+            
+            <div class="thoughts-display">
+                <div class="thought-wrapper">
+                    <span id="thought-counter">1 / 15</span>
+                    <p id="dynamic-thought">Desde que me di cuenta de mis errores, no veo colores en mi vida.</p>
+                </div>
+            </div>
+
+            <button class="next-btn" onclick="goToPage(3)">Ver lo que construimos</button>
+        </div>
+    </section>
+    
+
+<section id="page3" class="page">
+    <div class="history-header">
+        <h2 class="scrapbook-title">Nuestro Universo en Píxeles</h2>
+        <p class="history-subtitle">Cada fecha es un latido que compartimos...</p>
+    </div>
+
+    <div class="timeline-scroll">
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item" data-date="9 de Julio">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Algo Mágico ✨</h3>
+                <p>El día que te conocí. No sabía que mi mundo estaba a punto de cambiar por completo.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="11 de Julio">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Regalitos en Live 🎤</h3>
+                <p>Estabas bien linda y me encantó cómo cantabas. Solo quería que me notaras.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="12 de Julio">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Un paso más cerca 📱</h3>
+                <p>Me diste tu WhatsApp para que sea más privado los "moraditos" que ganabas. xD</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="2 de Agosto">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Nuestra primera noche 🌙</h3>
+                <p>Nos quedamos dormidos en Discord hasta la mañana siguiente. Fue el silencio más dulce.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="6 de Septiembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Tu cómplice 📝</h3>
+                <p>Te ayudé por primera vez con tus tareas. Me sentí raro pero muy feliz de apoyarte.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="24 de Septiembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Dúo Tu & Yo 🎮</h3>
+                <p>El día que nos hicimos dúos en Mobile Legends. Mi mejor momento en todo.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="3 de Octubre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Flores del alma 💐</h3>
+                <p>Las primeras flores que me salieron del corazón dártelas. Ya sentía algo especial.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="11 de Octubre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Mi consuelo ☁️</h3>
+                <p>En mi día más gris, pensar incluso en nuestros funerales me dio paz y felicidad a tu lado.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="25 de Octubre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Ramito de maquillaje 💄</h3>
+                <p>No sabía ni qué eran, pero quería que tuvieras todo. "Espectadora jamás".</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="31 de Octubre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Halloween Contigo 🎃</h3>
+                <p>No hicimos todo, pero fue hermoso pasarlo contigo. Fue muy divertido.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="2 de Noviembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Mirando Barbie 🎀</h3>
+                <p>Nuestra primera vez viendo la película. Me encantó compartir ese momento.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="12 de Noviembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>C-A-M-I-L-A ❤️</h3>
+                <p>Tu nombre en mi perfil de TikTok para que todos supieran a quién le pertenezco.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="4 de Diciembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>Cine a distancia 🎬</h3>
+                <p>Mirando la misma película lejos, pero juntos. No me sentí solo en la sala porque estabas ahí.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item" data-date="19 de Diciembre">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+                <h3>El día más importante 💝</h3>
+                <p>Agradezco al mundo que hayas nacido en este mismo plano para poder conocerte.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item eternal-flame" data-date="31 de Diciembre">
+            <div class="timeline-dot pink-pulse"></div>
+            <div class="timeline-content special-card">
+                <h3>¿Terminamos este 2025 juntos? ❤️‍🔥</h3>
+                <p>La llama aún está viva, solo espera por ti...</p>
+            </div>
+        </div>
+
+        <div class="timeline-footer">
+            <button class="next-btn pink-glow" onclick="goToPage(4)">Tengo algo más que decirte...</button>
+        </div>
+    </div>
+</section>
+
+
+
+
+<section id="page4" class="page">
+    <div class="letter-scene">
+        <div class="envelope-main-wrapper" id="letterEnvelope">
+            <div class="envelope-lid"></div>
+            <div class="envelope-back"></div>
+            <div class="envelope-front-flap"></div>
+            <div class="envelope-seal"></div>
+            <div class="click-me">Toca para abrir ✉️</div>
+        </div>
+
+        <div class="letter-paper" id="letterPaper">
+            <h2 class="letter-title">Mi niña linda,</h2>
+            <div class="letter-content" id="typedLetterContent"></div>
+            <p class="letter-signature">Con todo mi ser,<br>Jhoel</p>
+
+            <div class="audio-player-container" id="audioPlayerContainer">
+    <p class="audio-dedication">"Lo recito con amor y sinceridad..."</p>
+    
+    <div class="audio-wrapper">
+        <audio id="poemAudio" src="tu_poema_de_voz.mp3"></audio>
+        
+        <button id="playAudioBtn" class="audio-main-btn">
+            <i class="fas fa-play"></i>
+        </button>
+        <button id="pauseAudioBtn" class="audio-main-btn" style="display:none;">
+            <i class="fas fa-pause"></i>
+        </button>
+
+        <div class="audio-info">
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="audioProgressBar"></div>
+            </div>
+            <div class="time-stamps">
+                <span id="currentTime">0:00</span>
+                <span id="totalTime">0:00</span>
+            </div>
+        </div>
+    </div>
+    
+    <button class="next-btn pink-glow" id="goToPage5Btn" style="display:none;" onclick="goToPage(5)">
+        ¿Me perdonas?
+    </button>
+</div>
+        </div>
+    </div>
+</section>
+
+<section id="page5" class="page">
+    <div class="decision-container">
+        <h2 class="decision-title">Espero que me perdones</h2>
+        
+        <div class="decision-card card-forgive" onclick="sendWhatsapp()">
+            <div class="card-icon">✉️</div>
+            <h3>¿Continuamos con esta linda historia?</h3>
+            <p>Solo fue una caida, aun podemos crecer juntos. ¿Si?</p>
+            <button class="decision-btn">Sí, te perdono ❤️</button>
+        </div>
+
+        <div class="divider-glass">
+            <span>ó</span>
+        </div>
+
+        <div class="decision-card card-secret">
+            <div class="card-icon">🔒</div>
+            <h3>Tengo una confesión...</h3>
+            <p>Un secreto que guardo solo para ti. La contraseña es... el dia mas importante</p>
+            
+            <button class="decision-btn btn-silver" onclick="openKeypad()">Introducir Clave</button>
+        </div>
+    </div>
+
+    <div id="keypadModal" class="modal-overlay">
+    <div class="numpad-container">
+        <button class="close-modal" onclick="closeKeypad()">×</button>
+        <h4>Coloca la fecha de</h4>
+        
+        <div class="dots-container">
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="numpad-grid">
+            <button onclick="pressNum('1')">1</button>
+            <button onclick="pressNum('2')">2</button>
+            <button onclick="pressNum('3')">3</button>
+            <button onclick="pressNum('4')">4</button>
+            <button onclick="pressNum('5')">5</button>
+            <button onclick="pressNum('6')">6</button>
+            <button onclick="pressNum('7')">7</button>
+            <button onclick="pressNum('8')">8</button>
+            <button onclick="pressNum('9')">9</button>
+            <button class="btn-clear" onclick="clearNum()">C</button>
+            <button onclick="pressNum('0')">0</button>
+            <button class="btn-ok" onclick="checkSecretKey()">✓</button>
+        </div>
+
+        <p id="numpadError" class="numpad-error"></p>
+    </div>
+</div>
+</section>
+
+<section id="page6" class="page">
+    <div id="petalsContainer"></div>
+    
+    <div class="treasure-container">
+        <header class="revelation-header">
+            <h2 class="mystic-title">Mi Gran Secreto</h2>
+        </header>
+
+        <div class="confession-scroll">
+            <p class="love-letter-text">
+                Mi niña, el secreto que guardaba no es una fecha ni un lugar…
+                es el amor sincero que nació en mi corazón por ti.
+                Estoy profundamente enamorado de ti, con toda mi alma,
+                y no solo quiero amarte, quiero cuidarte, respetarte y elegirte cada día.
+                <br><br>
+                A mi lado no encontrarás dudas ni juegos,
+                sino lealtad, estabilidad y un amor que se queda,
+                uno que camina contigo, que te apoya, que te da paz
+                y que celebra cada una de tus sonrisas.
+                <br><br>
+                Quiero que estés conmigo hoy y siempre,
+                no solo porque yo te amo,
+                sino porque juntos podemos construir algo real, seguro
+                y bonito para los dos.
+            </p>
+        </div>
+
+        <div class="final-question-card">
+            <h3>¿Te gustaría ser mi novia y mi compañera de vida hasta el fin de los tiempos?</h3>
+            <div class="final-buttons">
+                <button class="btn-final-yes" onclick="answerFinal('si')">¡Sí, acepto! ❤️</button>
+                <button class="btn-final-maybe" onclick="answerFinal('pensar')">Lo pensaré... 🌙</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
