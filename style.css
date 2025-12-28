@@ -1136,5 +1136,33 @@ h1, h2, h3 {
     to { transform: translateY(110vh) rotate(360deg); }
 }
 
+/* --- AJUSTES PARA MÓVILES Y TABLETS --- */
+@media (max-width: 768px) {
+    .page {
+        padding: 40px 15px; /* Más espacio para que no choque con los bordes */
+        justify-content: flex-start; /* Alinea el contenido arriba para que sea fácil scrollear */
+        overflow-y: auto; /* Asegura que se pueda deslizar */
+    }
+
+    h1 {
+        font-size: 1.8rem !important; /* Letras un poco más pequeñas para que no se corten */
+    }
+
+    p, .texto-poema {
+        font-size: 1rem !important;
+        line-height: 1.5;
+        width: 90%; /* Que el texto no toque las orillas del cel */
+    }
+
+    .contenedor-reproductor {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    img {
+        max-width: 80%; /* Para que las imágenes no se salgan de la pantalla */
+        height: auto;
+    }
+}
 
 
