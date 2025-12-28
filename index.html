@@ -8,35 +8,41 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
-<audio id="musicaFondo" loop>
+<audio id="musicaFondo" loop preload="auto">
   <source src="fondo.mp3" type="audio/mpeg">
 </audio>
+
 <script>
   const musica = document.getElementById('musicaFondo');
   musica.volume = 0.15;
 
-  // Intentar reproducir apenas carga
-  window.addEventListener('load', () => {
-    musica.play().catch(() => {
-      // Si el navegador bloquea, esperamos interacción
-      activarEnInteraccion();
+  // Función para intentar reproducir
+  const intentarReproducir = () => {
+    musica.play().then(() => {
+      console.log("Reproducción iniciada");
+      // Si funciona, quitamos los escuchas de eventos
+      removerEventos();
+    }).catch(error => {
+      console.log("Esperando interacción del usuario...");
     });
-  });
+  };
 
-  function activarEnInteraccion() {
-    const activar = () => {
-      musica.play();
-      document.removeEventListener('click', activar);
-      document.removeEventListener('scroll', activar);
-      document.removeEventListener('touchstart', activar);
-    };
+  const removerEventos = () => {
+    document.removeEventListener('click', intentarReproducir);
+    document.removeEventListener('touchstart', intentarReproducir);
+    document.removeEventListener('keydown', intentarReproducir);
+    // Nota: El scroll suele estar bloqueado para activar audio en algunos móviles, 
+    // mejor usamos touchstart para que apenas toque para deslizar, suene.
+  };
 
-    document.addEventListener('click', activar);
-    document.addEventListener('scroll', activar);
-    document.addEventListener('touchstart', activar);
-  }
+  // Escuchar interacciones comunes
+  document.addEventListener('click', intentarReproducir);
+  document.addEventListener('touchstart', intentarReproducir);
+  document.addEventListener('keydown', intentarReproducir);
+
+  // También intentamos apenas la página esté lista, por si el navegador lo permite
+  document.addEventListener('DOMContentLoaded', intentarReproducir);
 </script>
-
 
 
     <section id="page1" class="page active">
@@ -350,3 +356,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
