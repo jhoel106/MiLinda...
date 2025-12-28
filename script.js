@@ -1,5 +1,5 @@
 const MI_WHATSAPP_REAL = "51970056175";
-const MI_FECHA_SECRETA = "1912"; 
+const MI_FECHA_SECRETA = "1913"; 
 let intervaloPensamientos; 
 let valorPinActual = "";
 
@@ -475,4 +475,5 @@ function checkSecretKey() {
         updateDots();
     }
 }
+
 
